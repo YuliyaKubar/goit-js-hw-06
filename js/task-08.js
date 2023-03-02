@@ -6,25 +6,23 @@ function onFormSubmit(event) {
     event.preventDefault();
 
     const formEl = event.currentTarget.elements;
-    console.log(formEl);
-
+    
     const email = formEl.email.value;
-    console.log(email);
+   
 
-    const password = formEl.password.value;
-    console.log(password);
+    const password = formEl.password.value.trim();
+    
 
     const formData = {
         email,
         password,
     }
 
-    if (email === "" || password === "") {
+    if (!email || !password) {
         alert("Заполните все поля!") 
-    } else {
-        console.log(formData);
-    }
-    event.currentTarget.reset();
- 
+        return;
+    } 
+    console.log(formData);
+    event.target.reset();
 };
 
